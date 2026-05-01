@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintMaster | Печать аттестатов и фотографий</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <div class="logo">
+            <h1>PrintMaster</h1>
+            <p>Печать аттестатов · Фотоцентр</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Портфолио</a>
+            <a href="#services">Услуги</a>
+            <a href="#contact">Контакты</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Качественная печать <span>аттестатов</span> и профессиональных <span>фотографий</span></h1>
+                <p>Официальные бланки, идеальное качество снимков, оперативность. Ваши документы и воспоминания в лучшем виде.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Заказать сейчас</a>
+                    <a href="gallery.html" class="btn btn-outline">Примеры работ</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-print"></i>
+                <i class="fas fa-camera" style="margin-left: 15px;"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <div class="section-title">Наши услуги</div>
+            <div class="cards-grid">
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap service-icon"></i>
+                    <h3>Печать аттестатов</h3>
+                    <p>Аттестаты 9 и 11 классов. Бланки Гознак, защита.</p>
+                    <div class="price-tag">от 550 ₽</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-image service-icon"></i>
+                    <h3>Фотопечать</h3>
+                    <p>Любые размеры: от 10x15 до 30x45. Мат/глянец.</p>
+                    <div class="price-tag">от 19 ₽</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-id-card service-icon"></i>
+                    <h3>Фото на документы</h3>
+                    <p>Паспорт, виза, удостоверение. Ретушь.</p>
+                    <div class="price-tag">250 ₽ (4 шт)</div>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-layer-group service-icon"></i>
+                    <h3>Ламинирование</h3>
+                    <p>Защита аттестатов и фото.</p>
+                    <div class="price-tag">от 80 ₽</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+        <div class="container contact-wrap">
+            <div class="contact-info">
+                <h3>Свяжитесь с нами</h3>
+                <p>Обсудим заказ печати аттестатов и фотографий.</p>
+                <div class="contact-detail"><i class="fas fa-phone-alt"></i> <span>+7 (921) 123-45-67</span></div>
+                <div class="contact-detail"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/79211234567">WhatsApp</a></div>
+                <div class="contact-detail"><i class="fas fa-envelope"></i> <a href="mailto:print@master.ru">print@master.ru</a></div>
+            </div>
+            <div class="contact-form">
+                <h4>Оставить заявку</h4>
+                <form id="callbackForm">
+                    <input type="text" placeholder="Ваше имя" required>
+                    <input type="tel" placeholder="Телефон" required>
+                    <textarea rows="3" placeholder="Тип печати, количество..."></textarea>
+                    <button type="submit" class="btn">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="container">
+        <p>© 2025 PrintMaster — печать аттестатов и фотографий</p>
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Портфолио</a>
+        </div>
+    </div>
+</footer>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            let target = document.querySelector(this.getAttribute('href'));
+            if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+    });
+    document.getElementById('callbackForm')?.addEventListener('submit', function(e) {
+        e.preventDefault(); alert('Спасибо! Мы свяжемся с вами.'); this.reset();
+    });
+</script>
+</body>
+</html>

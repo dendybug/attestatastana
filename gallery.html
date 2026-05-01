@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио работ - PrintMaster</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <div class="container navbar">
+        <div class="logo">
+            <h1>PrintMaster</h1>
+            <p>Печать аттестатов · Фотоцентр</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Портфолио</a>
+            <a href="index.html#services">Услуги</a>
+            <a href="index.html#contact">Контакты</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="section">
+        <div class="container">
+            <div class="section-title">Примеры моих работ</div>
+            <div class="section-sub">Реальные аттестаты и фотографии, напечатанные на заказ</div>
+            
+            <div class="gallery-grid" id="galleryContainer">
+                <!-- Здесь будут ваши фотографии. Замените src на свои файлы и добавьте подписи -->
+                <!-- Шаблон для каждого фото: -->
+                <!--
+                <div class="gallery-item">
+                    <img src="images/ваше_фото.jpg" alt="описание" onclick="openLightbox(this)">
+                    <div class="gallery-caption">Подпись к фото</div>
+                </div>
+                -->
+            </div>
+            <div class="gallery-note">Кликните на фото, чтобы увеличить</div>
+        </div>
+    </section>
+</main>
+
+<!-- Lightbox (модальное окно) -->
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close-lightbox">&times;</span>
+    <img class="lightbox-content" id="lightboxImg">
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 PrintMaster — печать аттестатов и фотографий</p>
+        <div class="footer-links">
+            <a href="index.html">Главная</a>
+            <a href="gallery.html">Портфолио</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // ⬇️⬇️⬇️ ЗДЕСЬ ВЫ ДОЛЖНЫ ПЕРЕЧИСЛИТЬ СВОИ ФОТОГРАФИИ ⬇️⬇️⬇️
+    const myWorks = [
+        { src: "images/work1.jpg", caption: "Аттестат 11 класс — плотная бумага, тиснение" },
+        { src: "images/work2.jpg", caption: "Печать фотографий 15x21 матовая ламинация" },
+        { src: "images/work3.jpg", caption: "Фото на документы (паспорт, виза)" },
+        { src: "images/work4.jpg", caption: "Аттестат 9 класс + обложка" },
+        { src: "images/work5.jpg", caption: "Фотоколлаж 20x30 глянец" },
+        { src: "images/work6.jpg", caption: "Ламинированный аттестат" }
+        // Добавьте сколько нужно строк, заменив пути на реальные имена файлов в папке images
+    ];
+
+    // Автоматическое создание карточек галереи
+    const galleryContainer = document.getElementById("galleryContainer");
+    if (galleryContainer) {
+        myWorks.forEach(work => {
+            const item = document.createElement("div");
+            item.className = "gallery-item";
+            item.innerHTML = `
+                <img src="${work.src}" alt="${work.caption}" onclick="openLightbox(this)">
+                <div class="gallery-caption">${work.caption}</div>
+            `;
+            galleryContainer.appendChild(item);
+        });
+    }
+
+    // Lightbox функции
+    function openLightbox(imgElement) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightboxImg");
+        lightbox.style.display = "flex";
+        lightboxImg.src = imgElement.src;
+    }
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+</script>
+</body>
+</html>
